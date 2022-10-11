@@ -48,6 +48,7 @@ export type qrPositionsType = {
   tl: Array<pointType>;
   tr: Array<pointType>;
   bl: Array<pointType>;
+  br: Array<pointType>;
 };
 
 export function Scanner() {
@@ -60,8 +61,8 @@ export function Scanner() {
     tl: [],
     tr: [],
     bl: [],
+    br: [],
   });
-
 
   const onChange = (imageList: any, addUpdateIndex: any) => {
     // data for submit
@@ -83,8 +84,8 @@ export function Scanner() {
         scanRegion: {
           x: 0,
           y: 0,
-          height: header.height / 2,
           width: header.width / 2,
+          height: header.height / 2,
         },
       })
         .then((result) => {
@@ -99,10 +100,10 @@ export function Scanner() {
       QrScanner.scanImage(image, {
         returnDetailedScanResult: true,
         scanRegion: {
-          x: header.height / 2,
+          x: header.width / 2,
           y: 0,
-          height: header.height / 2,
           width: header.width / 2,
+          height: header.height / 2,
         },
       })
         .then((result) => {
@@ -119,8 +120,8 @@ export function Scanner() {
         scanRegion: {
           x: 0,
           y: header.height / 2,
-          height: header.height / 2,
           width: header.width / 2,
+          height: header.height / 2,
         },
       })
         .then((result) => {
@@ -128,6 +129,24 @@ export function Scanner() {
 
           // @ts-ignore
           setQrPositions((val) => ({ ...val, bl: cornerPoints }));
+          console.log(result);
+        })
+        .catch((error) => console.log(error || "BL No QR code found."));
+
+      QrScanner.scanImage(image, {
+        returnDetailedScanResult: true,
+        scanRegion: {
+          x: header.width / 2,
+          y: header.height / 2,
+          width: header.width / 2,
+          height: header.height / 2,
+        },
+      })
+        .then((result) => {
+          const { data, cornerPoints } = result;
+
+          // @ts-ignore
+          setQrPositions((val) => ({ ...val, br: cornerPoints }));
           console.log(result);
         })
         .catch((error) => console.log(error || "BL No QR code found."));
@@ -235,6 +254,14 @@ export function Scanner() {
                           <polygon
                             className="image-qr"
                             points={qrPositions.bl
+                              .map((item) => `${item.x},${item.y}`)
+                              .join(" ")}
+                          />
+                        )}
+                        {qrPositions?.br && (
+                          <polygon
+                            className="image-qr"
+                            points={qrPositions.br
                               .map((item) => `${item.x},${item.y}`)
                               .join(" ")}
                           />

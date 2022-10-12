@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "./components/Form";
-import { Scanner } from "./Scanner";
+import { Scanner } from "./components/Scanner";
 import "./App.css";
 
 function App() {

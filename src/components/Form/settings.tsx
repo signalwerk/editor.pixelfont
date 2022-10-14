@@ -1,11 +1,15 @@
 export const charMap = ["nomiueaskx", "cbdpqlhvwz", "ftgjyr.:@/", "0123456789"];
+export const chars = [...charMap, " "].join("").split("");
+export const allExports = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", ...charMap, " "]
+  .join("")
+  .split("");
 
 export const settings = {
   qrSize: 20,
   page: {
     width: 297,
     height: 210,
-    padding: 9,
+    padding: 18,
     layout: {
       columns: 10,
       rows: 4,
@@ -28,3 +32,6 @@ export const settings = {
     width: 8,
   },
 };
+
+export const charHeight = settings.font.capHeight + settings.font.descender;
+export const charWidth = settings.font.width;

@@ -47,8 +47,6 @@ export function Char({
 
   const totalHeight = capHeight + descender;
 
-  console.log("totalHeight", totalHeight);
-
   const scaler = width / totalWidth;
 
   // const charPixels = chunk(

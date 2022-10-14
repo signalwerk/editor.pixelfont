@@ -1,0 +1,17 @@
+.app {
+  min-height: 100vh;
+  padding-top: 2.75rem;
+
+  --color-input-outlines: var(--color-black);
+}
+
+.app__inner {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app--preview {
+  color: var(--color-c64-primary);
+  background-color: var(--color-c64-bg);
+}

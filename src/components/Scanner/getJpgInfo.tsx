@@ -1,8 +1,5 @@
 import { readJpegHeader, jpgHeaderType } from "../../lib/jpeg-header";
 
-// QrScanner.scanImage(image)
-//   .then(result => console.log(result))
-//   .catch(error => console.log(error || 'No QR code found.'));
 export function getJpgInfo(file: any) {
   return new Promise<jpgHeaderType>((resolve, reject) => {
     var reader = new FileReader();
@@ -23,9 +20,5 @@ export function getJpgInfo(file: any) {
       }
     };
     reader.readAsArrayBuffer(file);
-
-    // setTimeout(() => {
-    //   resolve("foo");
-    // }, 300);
   });
 }

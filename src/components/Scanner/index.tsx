@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import ImageUploading from "react-images-uploading";
 import QrScanner from "qr-scanner";
 import { getJpgInfo } from "./getJpgInfo";
@@ -21,6 +21,8 @@ import {
 import { svg } from "../../packages/mini-pdf/src/writer/svg";
 import { renderAsJSX } from "../renderAsJSX";
 // import { useOpenCv } from "opencv-react";
+
+import { RenderCanvas } from "./canvas";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -106,11 +108,10 @@ function getTransform({ width, height }: any, positions: qrPositionsType) {
     t[8],
   ];
 
-  console.log({ bbox, page });
-
   return {
     transform: "matrix3d(" + matrix.join(",") + ")",
     transformOrigin: "0 0",
+    width: `${width}px`,
   };
 }
 
@@ -249,7 +250,6 @@ export function Scanner() {
 
   const onChange = (imageList: any, addUpdateIndex: any) => {
     // data for submit
-    console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
 
@@ -257,7 +257,6 @@ export function Scanner() {
     const image = images[0]?.file;
     // const header = readJpegHeader(image);
     const header = await getJpgInfo(image);
-    console.log({ image, header });
 
     if (header) {
       setImgDimension({ height: header.height, width: header.width });
@@ -371,19 +370,27 @@ export function Scanner() {
               &nbsp;
               <button onClick={onImageRemoveAll}>Remove all images</button>
               {imageList.map((image, index) => (
-                <div key={index} className="image-item">
-                  <div key={index} className="image-img">
-                    <img src={image["data_url"]} alt="" style={transform} />
+                <>
+                  {/* <RenderCanvas image={image} /> */}
 
-                    {imgDimension?.width && imgDimension?.height && (
-                      <> {imageOverlay}</>
-                    )}
+                  <div key={index} className="image-item">
+                    <div key={index} className="image-img">
+                      <img src={image["data_url"]} alt="" style={transform} />
+
+                      {imgDimension?.width && imgDimension?.height && (
+                        <> {imageOverlay}</>
+                      )}
+                    </div>
+                    <div className="image-item__btn-wrapper">
+                      <button onClick={() => onImageUpdate(index)}>
+                        Update
+                      </button>
+                      <button onClick={() => onImageRemove(index)}>
+                        Remove
+                      </button>
+                    </div>
                   </div>
-                  <div className="image-item__btn-wrapper">
-                    <button onClick={() => onImageUpdate(index)}>Update</button>
-                    <button onClick={() => onImageRemove(index)}>Remove</button>
-                  </div>
-                </div>
+                </>
               ))}
               {({
                 imageList,

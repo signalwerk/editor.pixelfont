@@ -1,0 +1,50 @@
+.preview__paragraph {
+  position: relative;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+  white-space: pre-line;
+}
+
+.preview__paragraph::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background-color: var(--color-c64-primary);
+  /* border: 1px solid var(--color-c64-primary); */
+}
+
+.test-font {
+  font-family: "test";
+  font-weight: 400;
+  line-height: 1;
+}
+
+.test-font--1x {
+  font-size: 7px;
+  line-height: 7px;
+}
+.test-font--2x {
+  font-size: 14px;
+  line-height: 14px;
+}
+.test-font--3x {
+  font-size: 21px;
+  line-height: 21px;
+}
+.test-font--4x {
+  font-size: 28px;
+  line-height: 28px;
+}
+.test-font--6x {
+  font-size: 42px;
+  line-height: 42px;
+}
+
+.preview__input {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-family: "Courier New", Courier, monospace;
+}

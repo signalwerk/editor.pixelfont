@@ -1,0 +1,14 @@
+.char-test__top {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* .char-test__input:focus {
+  border-color: var(--color-black);
+  outline: 0 !important;
+} */
+
+.char-test__line {
+  display: flex;
+  flex-wrap: wrap;
+}

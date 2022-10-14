@@ -1,0 +1,46 @@
+.button {
+  color: inherit;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  text-shadow: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.button:focus {
+  outline: 0 !important;
+}
+.button:disabled {
+  cursor: auto;
+}
+
+.button--primary {
+  font-size: 0.7rem;
+
+  background-color: transparent;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: 2px solid var(--color-input-outlines);
+}
+.button--secondary {
+  font-size: 0.6rem;
+
+  background-color: transparent;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: 1px solid var(--color-input-outlines);
+}
+
+.button--primary:hover,
+.button--secondary:hover {
+  background-color: var(--color-gray);
+}
+
+.button--primary + .button--primary {
+  margin-left: 0.5em;
+}

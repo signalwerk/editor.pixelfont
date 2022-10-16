@@ -20,9 +20,11 @@ function reducer(state, action) {
         ),
       };
     }
-    case "decrement": {
-      return { count: state.count - 1 };
+    case "loadFile": {
+      const { data } = action;
+      return data;
     }
+
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }

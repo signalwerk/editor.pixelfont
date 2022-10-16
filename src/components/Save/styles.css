@@ -1,4 +1,13 @@
-.save {
+/* .save {
   margin-top: 1em;
   margin-bottom: 1.5em;
+} */
+
+.save {
+  display: flex;
+  gap: 2rem;
+}
+
+.save__input {
+  margin-top: 0.6rem;
 }

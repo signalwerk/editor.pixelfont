@@ -3,11 +3,10 @@
   --color-white: white;
   --color-gray: rgb(202, 202, 202);
 
-
---color-input-outlines: var(--color-gray);
-
   --color-c64-bg: #5e8bf9;
   --color-c64-primary: #003ed2;
+
+  --color-input-outlines: var(--color-gray);
   /* 
   --color-c64-bg: white;
   --color-c64-primary: black;
@@ -66,4 +65,8 @@ code {
   stroke: red;
   stroke-width: 2px;
   vector-effect: non-scaling-stroke;
+}
+
+small {
+  font-size: 0.7em;
 }

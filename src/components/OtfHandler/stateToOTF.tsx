@@ -3,7 +3,10 @@ import opentype from "opentype.js";
 import range from "../Store/range";
 import { otfChar } from "./otfChar";
 
-export function stateToOTF(fontState: any) {
+export function stateToOTF(
+  fontState: any,
+  nameOverride: string = "DOSDAY2022"
+) {
   const fontInfo = fontState.info;
   const scaler = 125;
 
@@ -45,7 +48,7 @@ export function stateToOTF(fontState: any) {
   });
 
   const font = new opentype.Font({
-    familyName: "DOSDAY2022",
+    familyName: nameOverride,
     styleName: "Regular",
     unitsPerEm: 1000,
     ascender: fontInfo.capHeight * scaler,

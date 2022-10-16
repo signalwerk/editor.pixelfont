@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FontContext } from "../Store/context.jsx";
 // @ts-ignore
 import { saveAs } from "file-saver";
 // @ts-ignore
 import "./styles.css";
 import { stateToOTF } from "../OtfHandler/stateToOTF";
+import UploadJson from "../UploadJson";
 export function Save() {
   const [fontState, fontDispatch] = useContext(FontContext);
+  const [inputValue, setInputValue] = useState("");
 
   const save = () => {
     const json = JSON.stringify({ version: 1, ...fontState }, null, 2);
@@ -15,24 +17,38 @@ export function Save() {
   };
 
   const saveOtf = () => {
-    const font = stateToOTF(fontState);
+    const font = stateToOTF(fontState, inputValue);
     font.download();
   };
 
   return (
     <div className="save">
-      <button className="button button--primary" onClick={save}>
-        Save JSON
-      </button>
-      <button className="button button--primary" onClick={saveOtf}>
-        Export Font (OpenType)
-      </button>
-      <p>
-        <ul>
-          <li>⚠️ slow</li>
-          <li>⚠️ keystroke in text</li>
-        </ul>
-      </p>
+      <div>
+        <div>
+          <button className="button button--primary" onClick={saveOtf}>
+            Export Font (OpenType)
+          </button>
+        </div>
+
+        <label>
+          <input
+            className="save__input"
+            placeholder="Export Font Name"
+            type="text"
+            onChange={(e) => setInputValue(e.target.value)}
+            value={inputValue}
+          />
+          <small>Default: DOSDAY2022</small>
+        </label>
+      </div>
+
+      <div>
+        <button className="button button--primary" onClick={save}>
+          Save JSON
+        </button>
+
+        <UploadJson />
+      </div>
     </div>
   );
 }

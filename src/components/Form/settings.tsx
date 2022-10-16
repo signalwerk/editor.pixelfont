@@ -1,8 +1,5 @@
 export const charMap = ["nomiueaskx", "cbdpqlhvwz", "ftgjyr.:@/", "0123456789"];
 export const chars = [...charMap, " "].join("").split("");
-export const allExports = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", ...charMap, " "]
-  .join("")
-  .split("");
 
 export const settings = {
   qrSize: 20,

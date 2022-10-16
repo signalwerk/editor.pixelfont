@@ -4,6 +4,7 @@ import Header from "../Header";
 import { Scanner } from "../Scanner";
 import CharTest from "../CharTest";
 import Preview from "../Preview";
+
 import "./styles.css";
 // @ts-ignore
 import { Save } from "../Save";

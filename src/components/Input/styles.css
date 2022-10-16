@@ -1,0 +1,29 @@
+input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  color: inherit;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  text-shadow: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+
+  font-size: 0.7rem;
+
+  background-color: transparent;
+  padding: 0.5em 1em;
+  border-radius: 0;
+  border: 2px solid var(--color-input-outlines);
+}
+
+input:focus {
+  outline: 0 !important;
+  /* border: 2px solid var(--color-input-outlines); */
+}

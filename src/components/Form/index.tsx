@@ -19,6 +19,7 @@ import { QR } from "./QR";
 import { renderAsJSX } from "../renderAsJSX";
 import { Char } from "./Char";
 import { settings, charMap } from "./settings";
+import { title, subTitle } from "../const";
 
 const qrInfo = {
   tl: {
@@ -72,16 +73,16 @@ const DOC = document({}, [
     }),
 
     t({
-      x: 50,
-      y: 30,
-      text: "Pixelfont · Workshop",
+      x: settings.page.padding,
+      y: 24,
+      text: title,
       className: "form__title",
     }),
 
     t({
-      x: 50,
-      y: 35,
-      text: "2022 · DOSDAY · Stefan Huber",
+      x: settings.page.padding,
+      y: 32,
+      text: subTitle,
       className: "form__sub-title",
     }),
 
@@ -96,30 +97,30 @@ const DOC = document({}, [
     //     fill: TRANSPARENT,
     //   }),
     // }),
-    QR(qrString(qrInfo.tl), {
-      x: settings.page.padding,
-      y: settings.page.padding,
-      width: settings.qrSize,
-      height: settings.qrSize,
-    }),
-    QR(qrString(qrInfo.tr), {
-      x: settings.page.width - settings.page.padding - settings.qrSize,
-      y: settings.page.padding,
-      width: settings.qrSize,
-      height: settings.qrSize,
-    }),
-    QR(qrString(qrInfo.bl), {
-      x: settings.page.padding,
-      y: settings.page.height - settings.page.padding - settings.qrSize,
-      width: settings.qrSize,
-      height: settings.qrSize,
-    }),
-    QR(qrString(qrInfo.br), {
-      x: settings.page.width - settings.page.padding - settings.qrSize,
-      y: settings.page.height - settings.page.padding - settings.qrSize,
-      width: settings.qrSize,
-      height: settings.qrSize,
-    }),
+    // QR(qrString(qrInfo.tl), {
+    //   x: settings.page.padding,
+    //   y: settings.page.padding,
+    //   width: settings.qrSize,
+    //   height: settings.qrSize,
+    // }),
+    // QR(qrString(qrInfo.tr), {
+    //   x: settings.page.width - settings.page.padding - settings.qrSize,
+    //   y: settings.page.padding,
+    //   width: settings.qrSize,
+    //   height: settings.qrSize,
+    // }),
+    // QR(qrString(qrInfo.bl), {
+    //   x: settings.page.padding,
+    //   y: settings.page.height - settings.page.padding - settings.qrSize,
+    //   width: settings.qrSize,
+    //   height: settings.qrSize,
+    // }),
+    // QR(qrString(qrInfo.br), {
+    //   x: settings.page.width - settings.page.padding - settings.qrSize,
+    //   y: settings.page.height - settings.page.padding - settings.qrSize,
+    //   width: settings.qrSize,
+    //   height: settings.qrSize,
+    // }),
     ...Array.from(
       { length: settings.page.layout.columns * settings.page.layout.rows },
       (_, i) => {
@@ -143,7 +144,7 @@ const DOC = document({}, [
 
         const xGap = unitWidth * settings.page.layout.gap.columns;
         const yGap = unitWidth * settings.page.layout.gap.rows;
-        const yOffset = (totalHeight - totalUnitsY * unitWidth) / 2;
+        const yOffset = (totalHeight - totalUnitsY * unitWidth) / 2 + 5;
         return Char({
           text: charMap[y][x],
           x: settings.page.padding + xGap + (x * charWidth + xGap * (x - 1)),
@@ -155,7 +156,7 @@ const DOC = document({}, [
           width: charWidth,
           fontInfo: settings.font,
         });
-      }
+      },
     ),
   ]),
 ]);

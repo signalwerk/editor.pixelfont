@@ -77,12 +77,12 @@ function Char({ id }) {
       </div>
       <div
         className="char__baseline"
-        style={{ top: `${fontState.info.capHeight}rem` }}
+        style={{ top: `${fontState.info.capHeight}em` }}
       ></div>
       <div
         className="char__xHeight"
         style={{
-          top: `${fontState.info.capHeight - fontState.info.xHeight}rem`,
+          top: `${fontState.info.capHeight - fontState.info.xHeight}em`,
         }}
       ></div>
       <div className="char__txt">{id}</div>

@@ -6,6 +6,8 @@ import { saveAs } from "file-saver";
 import "./styles.css";
 import { stateToOTF } from "../OtfHandler/stateToOTF";
 import UploadJson from "../UploadJson";
+import { defaultFontName } from "../const";
+
 export function Save() {
   const [fontState, fontDispatch] = useContext(FontContext);
   const [inputValue, setInputValue] = useState("");
@@ -38,7 +40,7 @@ export function Save() {
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}
           />
-          <small>Default: DOSDAY2022</small>
+          <small>Default: «{defaultFontName}»</small>
         </label>
       </div>
 

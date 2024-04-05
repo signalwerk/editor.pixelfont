@@ -5,6 +5,8 @@ import { Scanner } from "../Scanner";
 import CharTest from "../CharTest";
 import Preview from "../Preview";
 
+import { $t } from "../const";
+
 import "./styles.css";
 // @ts-ignore
 import { Save } from "../Save";
@@ -29,7 +31,7 @@ function App() {
           className="button button--primary"
           onClick={(e) => setEditMode(!editMode)}
         >
-          {editMode ? "show preview" : "show edit"}
+          {editMode ? $t.showPreview : $t.showEdit}
         </button>
 
         {editMode ? (

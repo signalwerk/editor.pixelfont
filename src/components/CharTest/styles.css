@@ -12,3 +12,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@media (hover: none) {
+  .char-test__line {
+    justify-content: center;
+  }
+}

@@ -7,10 +7,9 @@
   --color-c64-primary: #003ed2;
 
   --color-input-outlines: var(--color-gray);
-  /* 
+
   --color-c64-bg: white;
   --color-c64-primary: black;
- */
 
   font-family: "Work Sans", sans-serif;
   font-size: 16px;

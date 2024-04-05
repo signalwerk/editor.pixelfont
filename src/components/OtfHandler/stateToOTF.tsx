@@ -2,10 +2,11 @@
 import opentype from "opentype.js";
 import range from "../Store/range";
 import { otfChar } from "./otfChar";
+import { defaultFontName } from "../const";
 
 export function stateToOTF(
   fontState: any,
-  nameOverride: string = "DOSDAY2022"
+  nameOverride: string = defaultFontName,
 ) {
   const fontInfo = fontState.info;
   const scaler = 125;
@@ -17,7 +18,7 @@ export function stateToOTF(
     0,
     range(charHeight, () => range(fontInfo.width, () => false)),
     scaler,
-    fontInfo.capHeight
+    fontInfo.capHeight,
   );
 
   const glyph = fontState.characters[0];
@@ -30,7 +31,7 @@ export function stateToOTF(
       glyph.id.charCodeAt(0),
       glyph.data,
       scaler,
-      fontInfo.capHeight
+      fontInfo.capHeight,
     );
 
     glyphs.push(aGlyph);
@@ -41,14 +42,14 @@ export function stateToOTF(
         glyph.id.toUpperCase().charCodeAt(0),
         glyph.data,
         scaler,
-        fontInfo.capHeight
+        fontInfo.capHeight,
       );
       glyphs.push(aGlyph);
     }
   });
 
   const font = new opentype.Font({
-    familyName: nameOverride,
+    familyName: nameOverride || defaultFontName,
     styleName: "Regular",
     unitsPerEm: 1000,
     ascender: fontInfo.capHeight * scaler,

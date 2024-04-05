@@ -3,6 +3,8 @@ import Char from "../Char";
 import { chars } from "../Form/settings.tsx";
 import "./styles.css";
 
+import { $t } from "../const";
+
 const localStorageId = "signalwerk.pixelfont.text";
 
 function CharTest() {

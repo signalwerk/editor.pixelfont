@@ -4,13 +4,16 @@ import { style } from "../../packages/mini-pdf/src/generator/ast/style";
 import {
   group,
   translate,
-  scale
+  scale,
 } from "../../packages/mini-pdf/src/generator/ast/group";
 import { BLACK } from "../../packages/mini-pdf/src/generator/ast/color";
 import { AstBoxAttributes } from "../../packages/mini-pdf/src/dataTypes/ast/Box";
 import { chunk } from "./chunk";
 
-export function QR(text: string, { x, y, width, height }: AstBoxAttributes): any {
+export function QR(
+  text: string,
+  { x, y, width, height }: AstBoxAttributes,
+): any {
   const option: QRCodeOptions = { errorCorrectionLevel: "medium" };
   const qr = QRCode.create(text, option);
   const size = qr.modules.size;
@@ -41,7 +44,7 @@ export function QR(text: string, { x, y, width, height }: AstBoxAttributes): any
             style: style({
               fill: BLACK,
             }),
-          })
+          }),
         );
       }
     });
@@ -54,6 +57,6 @@ export function QR(text: string, { x, y, width, height }: AstBoxAttributes): any
         scale(boxDimensions.width, boxDimensions.height),
       ],
     },
-    boxes
+    boxes,
   );
 }

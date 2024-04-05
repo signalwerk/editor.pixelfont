@@ -1,12 +1,13 @@
 import React from "react";
 
 import "./styles.css";
+import { title, subTitle } from "../const";
 
 function Header() {
   return (
     <div className="header">
-      <h1>Pixelfont · Workshop</h1>
-      <h2>2022 · DOSDAY · Stefan Huber</h2>
+      <h1>{title}</h1>
+      <h2>{subTitle}</h2>
     </div>
   );
 }

@@ -9,12 +9,12 @@ import App from "./components/App/";
 import { FontContextProvider } from "./components/Store/context";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
     <FontContextProvider>
       <App />
     </FontContextProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

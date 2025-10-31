@@ -17,7 +17,7 @@ export function useRoveFocus(size) {
           setCurrentFocus(
             currentFocus + charWidth > size - 1
               ? currentFocus + charWidth - totalCount
-              : currentFocus + charWidth
+              : currentFocus + charWidth,
           );
           break;
         }
@@ -27,7 +27,7 @@ export function useRoveFocus(size) {
           setCurrentFocus(
             currentFocus < charWidth
               ? size - charWidth + currentFocus
-              : currentFocus - charWidth
+              : currentFocus - charWidth,
           );
           break;
         }
@@ -52,7 +52,7 @@ export function useRoveFocus(size) {
       } else if (e.keyCode === 38) {
       }
     },
-    [size, currentFocus, setCurrentFocus]
+    [size, currentFocus, setCurrentFocus],
   );
 
   useEffect(() => {

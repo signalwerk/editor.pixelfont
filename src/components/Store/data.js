@@ -39,7 +39,7 @@ export const set = (data, x, y, value) => {
   const lineInex = getWrppingIndex(newData.length, y);
 
   const newLine = newData[lineInex].map((pixel, index) =>
-    index === x ? value : pixel
+    index === x ? value : pixel,
   );
 
   newData[lineInex] = newLine;

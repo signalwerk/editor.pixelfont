@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Form from "../Form";
 import Header from "../Header";
-import { Scanner } from "../Scanner";
 import CharTest from "../CharTest";
 import Preview from "../Preview";
 
@@ -24,7 +22,6 @@ function App() {
     <div className={`app app--${editMode ? "edit" : "preview"}`}>
       <div className="app__inner">
         <Header />
-        {/* <Form /> */}
         {/* <Scanner /> */}
 
         <button

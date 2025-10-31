@@ -26,7 +26,7 @@ export function Save() {
   };
 
   const handleDelete = () => {
-    fontDispatch({ type: "clearPixels"});
+    fontDispatch({ type: "clearPixels" });
   };
 
   return (
@@ -58,7 +58,7 @@ export function Save() {
         <UploadJson />
 
         <FullButton
-         className="button button--primary button--b-top"
+          className="button button--primary button--b-top"
           label={$t.delete}
           confirm={$t.confirmDelete}
           onClick={() => handleDelete()}

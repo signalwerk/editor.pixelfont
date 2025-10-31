@@ -15,7 +15,7 @@ export function otfChar(
   unicode: number,
   data: any,
   size: number,
-  capHeight: number
+  capHeight: number,
 ) {
   const totalHeight = data.length * size;
 

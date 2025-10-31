@@ -7,7 +7,7 @@ const localStorageId = "signalwerk.pixelfont.preview";
 function Preview() {
   const [text, setText] = useState(
     JSON.parse(localStorage.getItem(localStorageId)) ||
-      "The quick brown fox jumps over the lazy dog"
+      "The quick brown fox jumps over the lazy dog",
   );
 
   useEffect(() => {

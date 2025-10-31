@@ -3,7 +3,7 @@ export function fontToFontfaceString(font: any) {
 
   var base64String = btoa(
     // @ts-ignore
-    String.fromCharCode(...new Uint8Array(arrayBuffer))
+    String.fromCharCode(...new Uint8Array(arrayBuffer)),
   );
 
   const css = `

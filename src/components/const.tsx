@@ -1,6 +1,7 @@
+export const year = 2025;
 export const title = "Pixelfonts like it’s 1982";
-export const subTitle = "2024 · Tag der Schrift · Stefan Huber";
-export const defaultFontName = "Tag der Schrift 2024";
+export const subTitle = `${year} · Vintage Computer Festival · Stefan Huber`;
+export const defaultFontName = `Vintage Computer Festival ${year}`;
 
 // export const $t = {
 //   showPreview: "preview",

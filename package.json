@@ -1,5 +1,5 @@
 {
-  "name": "pixelfont.scanner",
+  "name": "editor.pixelfont",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

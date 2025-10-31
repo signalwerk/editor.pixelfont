@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useCallback, useContext } from "react";
 
 import { FontContext } from "../Store/context.jsx";
 import { getChar } from "../Store/data.js";
-import { charHeight, charWidth } from "../Form/settings.tsx";
+import { charHeight, charWidth } from "../../settings.tsx";
 import "./styles.css";
 
 import { useRoveFocus } from "./useRoveFocus";

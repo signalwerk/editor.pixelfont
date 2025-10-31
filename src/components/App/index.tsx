@@ -12,17 +12,10 @@ import { Save } from "../Save";
 function App() {
   const [editMode, setEditMode] = useState(true);
 
-  // const [fontState, fontDispatch] = useContext(FontContext);
-
-  // useEffect(() => {
-  //   localStorage.setItem(localStorageId, JSON.stringify(fontState))
-  // }, [fontState])
-
   return (
     <div className={`app app--${editMode ? "edit" : "preview"}`}>
       <div className="app__inner">
         <Header />
-        {/* <Scanner /> */}
 
         <button
           className="button button--primary"

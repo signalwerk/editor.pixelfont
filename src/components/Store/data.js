@@ -1,4 +1,4 @@
-import { settings, chars, charHeight, charWidth } from "../Form/settings.tsx";
+import { settings, chars, charHeight, charWidth } from "../../settings.tsx";
 import range from "./range";
 
 export const characters = chars.map((char) => {

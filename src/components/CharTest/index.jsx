@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Char from "../Char";
-import { chars } from "../Form/settings.tsx";
+import { chars } from "../../settings.tsx";
 import "./styles.css";
 
 import { $t } from "../const";

@@ -1,5 +1,5 @@
 import { useCallback, useState, useEffect } from "react";
-import { charHeight, charWidth } from "../Form/settings.tsx";
+import { charHeight, charWidth } from "../../settings.tsx";
 
 const totalCount = charHeight * charWidth;
 

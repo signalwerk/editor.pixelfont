@@ -1,7 +1,7 @@
 import { settings, chars, charHeight, charWidth } from "../Form/settings.tsx";
 import range from "./range";
 
-const characters = chars.map((char) => {
+export const characters = chars.map((char) => {
   return {
     id: char,
     data: range(charHeight, (y) => range(charWidth, (x) => false)),

@@ -6,7 +6,9 @@ import { saveAs } from "file-saver";
 import "./styles.css";
 import { stateToOTF } from "../OtfHandler/stateToOTF";
 import UploadJson from "../UploadJson";
+import FullButton from "../Button";
 import { defaultFontName } from "../const";
+import { $t } from "../const";
 
 export function Save() {
   const [fontState, fontDispatch] = useContext(FontContext);
@@ -23,19 +25,23 @@ export function Save() {
     font.download();
   };
 
+  const handleDelete = () => {
+    fontDispatch({ type: "clearPixels"});
+  };
+
   return (
     <div className="save">
       <div>
         <div>
           <button className="button button--primary" onClick={saveOtf}>
-            Export Font (OpenType)
+            {$t.exportFontOpenType}
           </button>
         </div>
 
         <label>
           <input
             className="save__input"
-            placeholder="Export Font Name"
+            placeholder={$t.exportFontName}
             type="text"
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}
@@ -46,10 +52,17 @@ export function Save() {
 
       <div>
         <button className="button button--primary" onClick={save}>
-          Save JSON
+          {$t.saveJSON}
         </button>
 
         <UploadJson />
+
+        <FullButton
+         className="button button--primary button--b-top"
+          label={$t.delete}
+          confirm={$t.confirmDelete}
+          onClick={() => handleDelete()}
+        />
       </div>
     </div>
   );

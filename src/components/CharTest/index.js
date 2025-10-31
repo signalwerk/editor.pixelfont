@@ -9,7 +9,7 @@ const localStorageId = "signalwerk.pixelfont.text";
 
 function CharTest() {
   const [text, setText] = useState(
-    JSON.parse(localStorage.getItem(localStorageId)) || "Hamburgefonts"
+    JSON.parse(localStorage.getItem(localStorageId)) || "Hamburgefonts",
   );
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function CharTest() {
           className="button button--secondary"
           onClick={(e) => setText(chars.join(""))}
         >
-          ↑ alle Zeichen einfügen ↑
+          {$t.allCharacters}
         </button>
       </div>
 

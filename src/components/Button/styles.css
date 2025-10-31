@@ -44,3 +44,7 @@
 .button--primary + .button--primary {
   margin-left: 0.5em;
 }
+
+.button--b-top {
+  margin-top: 0.6rem;
+}

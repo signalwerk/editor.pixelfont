@@ -55,12 +55,12 @@ function Char({ id }) {
       <div className="char__inner">
         {char.data.map((line, y) => {
           return (
-            <div className="char__line">
+            <div className="char__line" key={y}>
               {line.map((pixel, x) => {
                 const index = y * charWidth + x;
                 return (
                   <Pixel
-                    key={id}
+                    key={x}
                     char={id}
                     value={pixel}
                     x={x}

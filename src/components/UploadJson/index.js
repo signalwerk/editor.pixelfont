@@ -1,5 +1,6 @@
 import React, { useState, useContext, useRef } from "react";
 import { FontContext } from "../Store/context.jsx";
+import { $t } from "../const";
 
 import "./styles.css";
 
@@ -35,8 +36,11 @@ function UploadJson() {
         style={{ display: "none" }}
       />
 
-      <button className="button button--primary" onClick={() => fileInput.current.click()}>
-        Import JSON
+      <button
+        className="button button--primary"
+        onClick={() => fileInput.current.click()}
+      >
+        {$t.importJSON}
       </button>
     </div>
   );

@@ -3,7 +3,7 @@
 // const [fontState, fontDispatch] = useContext(FontContext);
 
 import React, { useReducer, createContext, useEffect } from "react";
-import { font, set } from "./data";
+import { font, set, characters } from "./data";
 
 const initialState = { ...font };
 
@@ -16,13 +16,20 @@ function reducer(state, action) {
         characters: state.characters.map((character) =>
           character.id === char
             ? { ...character, data: set(character.data, x, y, value) }
-            : character
+            : character,
         ),
       };
     }
     case "loadFile": {
       const { data } = action;
       return data;
+    }
+
+    case "clearPixels": {
+      return {
+        ...state,
+        characters,
+      };
     }
 
     default: {
@@ -38,7 +45,7 @@ const localStorageId = "signalwerk.pixelfont.font";
 export const FontContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(
     reducer,
-    JSON.parse(localStorage.getItem(localStorageId)) || initialState
+    JSON.parse(localStorage.getItem(localStorageId)) || initialState,
   );
 
   useEffect(() => {

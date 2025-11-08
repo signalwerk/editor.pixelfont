@@ -1,0 +1,159 @@
+.admin {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #333;
+}
+
+.admin__header h1 {
+  margin: 0;
+}
+
+.admin__back-link {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.admin__back-link:hover {
+  background-color: #555;
+}
+
+.admin__controls {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.admin__filter,
+.admin__text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin__filter label,
+.admin__text-input label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.admin__select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.admin__text-input input {
+  min-width: 300px;
+}
+
+.admin__users-count {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.admin__previews {
+  display: grid;
+  gap: 2rem;
+}
+
+.admin__previews--full {
+  grid-template-columns: 1fr;
+}
+
+.admin__previews--small {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+}
+
+.admin__previews--reduce {
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1rem;
+}
+
+.admin__preview-item {
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.admin__previews--small .admin__preview-item,
+.admin__previews--full .admin__preview-item {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin__preview-item * {
+  box-sizing: border-box;
+}
+
+.admin__preview-canvas {
+  /* background-color: #f9f9f9; */
+  /* padding: 1rem; */
+  /* border-radius: 4px; */
+  /* min-height: 60px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin__previews--small .admin__preview-canvas,
+.admin__previews--full .admin__preview-canvas {
+  margin-bottom: 0.75rem;
+}
+
+.admin__previews--full .admin__preview-canvas {
+  /* aspect-ratio: 10 / 1; */
+  aspect-ratio: 10 / 1;
+  /* min-aspect-ratio: 3 / 1; */
+  width: 100%;
+}
+
+.admin__preview-image {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.admin__previews--full .admin__preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.admin__preview-author {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.admin__preview-time {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.admin__no-users {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #666;
+}

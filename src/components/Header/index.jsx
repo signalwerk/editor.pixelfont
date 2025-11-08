@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "./styles.css";
 import { title, subTitle } from "../const";
+import { FontContext } from "../Store/context";
 
 function Header() {
   return (
     <div className="header">
-      <h1>{title}</h1>
-      <h2>{subTitle}</h2>
+      <div className="header__titles">
+        <h1>{title}</h1>
+        <h2>{subTitle}</h2>
+      </div>
     </div>
   );
 }

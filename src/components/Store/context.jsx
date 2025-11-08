@@ -7,10 +7,10 @@ import { font, set, characters } from "./data";
 import { generateRandomName } from "../../utils/randomName";
 import { getUserUUID } from "../../utils/uuid";
 
-const initialState = { 
+const initialState = {
   ...font,
   userId: getUserUUID(), // Unique persistent identifier
-  author: generateRandomName() // Display name (can change)
+  author: generateRandomName(), // Display name (can change)
 };
 
 function reducer(state, action) {

@@ -15,7 +15,7 @@ import { FontContext } from "../Store/context";
 
 function App() {
   const [editMode, setEditMode] = useState(true);
-  const [route, setRoute] = useState(window.location.hash || '');
+  const [route, setRoute] = useState(window.location.hash || "");
   const [fontState] = useContext(FontContext);
 
   // Handle routing
@@ -24,8 +24,8 @@ function App() {
       setRoute(window.location.hash);
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   // Auto-send context to server every 15 seconds
@@ -37,15 +37,15 @@ function App() {
           timestamp: Date.now(),
         };
 
-        await fetch('http://localhost:3001/api/fonts', {
-          method: 'POST',
+        await fetch("https://be.pixelfont.signalwerk.ch/api/fonts", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(dataToSend),
         });
       } catch (error) {
-        console.error('Error sending context to server:', error);
+        console.error("Error sending context to server:", error);
       }
     };
 
@@ -59,7 +59,7 @@ function App() {
   }, [fontState]);
 
   // Show admin panel if route is #/admin
-  if (route === '#/admin') {
+  if (route === "#/admin") {
     return <Admin />;
   }
 

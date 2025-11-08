@@ -65,9 +65,11 @@ npm start
 ## API Endpoints
 
 ### POST /api/fonts
+
 Receives font data from clients.
 
 **Request Body:**
+
 ```json
 {
   "userId": "uuid-v4-string",
@@ -77,6 +79,7 @@ Receives font data from clients.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -87,9 +90,11 @@ Receives font data from clients.
 ```
 
 ### GET /api/fonts
+
 Returns all stored fonts with their metadata, ordered by most recent first.
 
 **Response:**
+
 ```json
 [
   {
@@ -102,9 +107,11 @@ Returns all stored fonts with their metadata, ordered by most recent first.
 ```
 
 ### GET /api/fonts/:userId
+
 Returns font data for a specific user by their UUID.
 
 **Response:**
+
 ```json
 {
   "userId": "uuid-v4-string",
@@ -115,9 +122,11 @@ Returns font data for a specific user by their UUID.
 ```
 
 ### GET /api/health
+
 Health check endpoint for monitoring.
 
 **Response:**
+
 ```json
 {
   "status": "ok",
@@ -182,4 +191,3 @@ For production deployment with Coolify, see [DEPLOY.md](./DEPLOY.md).
 - **Framework**: Express.js
 - **Database**: SQLite (better-sqlite3)
 - **Containerization**: Docker
-

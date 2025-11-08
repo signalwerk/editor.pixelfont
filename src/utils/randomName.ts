@@ -1,14 +1,56 @@
 const colors = [
-  'red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'brown',
-  'cyan', 'magenta', 'lime', 'indigo', 'violet', 'turquoise', 'gold',
-  'silver', 'crimson', 'amber', 'jade', 'coral'
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  "purple",
+  "orange",
+  "pink",
+  "brown",
+  "cyan",
+  "magenta",
+  "lime",
+  "indigo",
+  "violet",
+  "turquoise",
+  "gold",
+  "silver",
+  "crimson",
+  "amber",
+  "jade",
+  "coral",
 ];
 
 const animals = [
-  'lion', 'tiger', 'bear', 'wolf', 'fox', 'eagle', 'hawk', 'owl',
-  'dolphin', 'whale', 'shark', 'panda', 'koala', 'zebra', 'giraffe',
-  'elephant', 'rhino', 'hippo', 'penguin', 'otter', 'beaver', 'rabbit',
-  'deer', 'moose', 'lynx', 'jaguar', 'leopard', 'cheetah', 'panther'
+  "lion",
+  "tiger",
+  "bear",
+  "wolf",
+  "fox",
+  "eagle",
+  "hawk",
+  "owl",
+  "dolphin",
+  "whale",
+  "shark",
+  "panda",
+  "koala",
+  "zebra",
+  "giraffe",
+  "elephant",
+  "rhino",
+  "hippo",
+  "penguin",
+  "otter",
+  "beaver",
+  "rabbit",
+  "deer",
+  "moose",
+  "lynx",
+  "jaguar",
+  "leopard",
+  "cheetah",
+  "panther",
 ];
 
 export function generateRandomName(): string {
@@ -16,4 +58,3 @@ export function generateRandomName(): string {
   const animal = animals[Math.floor(Math.random() * animals.length)];
   return `${color}${animal}`;
 }
-

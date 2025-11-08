@@ -142,33 +142,38 @@ app.get("/api/fonts/:userId", (req, res) => {
 
 // Delete old entries (cleanup every 5 minutes)
 if (ENABLE_CLEANUP) {
-  setInterval(() => {
-    const now = Date.now();
-    const maxAge = 24 * 60 * 60 * 1000; // 24 hours
-    const cutoffTime = now - maxAge;
+  setInterval(
+    () => {
+      const now = Date.now();
+      const maxAge = 24 * 60 * 60 * 1000; // 24 hours
+      const cutoffTime = now - maxAge;
 
-    try {
-      const selectStmt = db.prepare(
-        "SELECT userId, author FROM fonts WHERE lastUpdate < ?",
-      );
-      const oldFonts = selectStmt.all(cutoffTime);
+      try {
+        const selectStmt = db.prepare(
+          "SELECT userId, author FROM fonts WHERE lastUpdate < ?",
+        );
+        const oldFonts = selectStmt.all(cutoffTime);
 
-      if (oldFonts.length > 0) {
-        const deleteStmt = db.prepare("DELETE FROM fonts WHERE lastUpdate < ?");
-        const result = deleteStmt.run(cutoffTime);
-
-        oldFonts.forEach((font) => {
-          console.log(
-            `Cleaned up old font data from: ${font.author} (${font.userId})`,
+        if (oldFonts.length > 0) {
+          const deleteStmt = db.prepare(
+            "DELETE FROM fonts WHERE lastUpdate < ?",
           );
-        });
+          const result = deleteStmt.run(cutoffTime);
 
-        console.log(`Cleaned up ${result.changes} old font entries`);
+          oldFonts.forEach((font) => {
+            console.log(
+              `Cleaned up old font data from: ${font.author} (${font.userId})`,
+            );
+          });
+
+          console.log(`Cleaned up ${result.changes} old font entries`);
+        }
+      } catch (error) {
+        console.error("Error during cleanup:", error);
       }
-    } catch (error) {
-      console.error("Error during cleanup:", error);
-    }
-  }, 5 * 60 * 1000);
+    },
+    5 * 60 * 1000,
+  );
 }
 
 // Graceful shutdown

@@ -27,7 +27,9 @@ function Admin() {
     // Fetch users from server
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/fonts");
+        const response = await fetch(
+          "https://be.pixelfont.signalwerk.ch/api/fonts",
+        );
         const data = await response.json();
         setUsers(data);
       } catch (error) {

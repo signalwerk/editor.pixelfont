@@ -58,7 +58,7 @@ export function Save() {
           />
           <small>Default: «{defaultFontName}»</small>
         </label>
-        
+
         <br />
         <br />
 

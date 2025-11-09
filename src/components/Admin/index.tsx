@@ -155,7 +155,7 @@ function Admin() {
             className="admin__select"
           >
             <option value="full">Full (1 per line)</option>
-            <option value="small">Small (6 per line)</option>
+            <option value="small">Small (4 per line)</option>
             <option value="reduce">Reduce (10 per line)</option>
           </select>
         </div>
@@ -199,7 +199,7 @@ function Admin() {
                 />
               )}
             </div>
-            {layout === "full" && (
+            {layout !== "reduce" && (
               <>
                 <div className="admin__preview-author">
                   {user.author || "anonymous"}

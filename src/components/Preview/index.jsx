@@ -3,6 +3,7 @@ import StyleExport from "../OtfHandler/";
 import "./styles.css";
 
 const localStorageId = "signalwerk.pixelfont.preview";
+const animatedStorageId = "signalwerk.pixelfont.preview.animated";
 
 function Preview() {
   const [text, setText] = useState(
@@ -10,11 +11,38 @@ function Preview() {
       "The quick brown fox jumps over the lazy dog",
   );
 
+  const [isAnimated, setIsAnimated] = useState(
+    JSON.parse(localStorage.getItem(animatedStorageId)) || false,
+  );
+
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
+
   useEffect(() => {
     window.localStorage.setItem(localStorageId, JSON.stringify(text));
   }, [text]);
 
-  const printText = text; // .toLowerCase();
+  useEffect(() => {
+    window.localStorage.setItem(animatedStorageId, JSON.stringify(isAnimated));
+  }, [isAnimated]);
+
+  useEffect(() => {
+    if (!isAnimated || text.length === 0) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setCurrentCharIndex((prevIndex) => (prevIndex + 1) % text.length);
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, [isAnimated, text]);
+
+  const printText =
+    isAnimated && text.length > 0
+      ? text[currentCharIndex] === " "
+        ? "\u00A0"
+        : text[currentCharIndex]
+      : text;
 
   return (
     <div className="preview">
@@ -23,6 +51,18 @@ function Preview() {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
+
+      <div className="preview__controls">
+        <input
+          id="animated"
+          type="checkbox"
+          checked={isAnimated}
+          onChange={(e) => setIsAnimated(e.target.checked)}
+        />
+        <label htmlFor="animated" className="preview__checkbox-label">
+          <span>Animated (cycle characters)</span>
+        </label>
+      </div>
 
       <StyleExport />
       <div className="test-font">

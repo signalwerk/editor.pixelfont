@@ -170,13 +170,13 @@ function Admin() {
                 />
               )}
             </div>
-            {layout !== "reduce" && (
+            {layout === "full" && (
               <>
                 <div className="admin__preview-author">
                   {user.author || "anonymous"}
                 </div>
                 <div className="admin__preview-time">
-                  Last update: {new Date(user.lastUpdate).toLocaleString()}
+                  Last update: {new Date(user.lastUpdate).toLocaleString('de-CH')}
                 </div>
               </>
             )}

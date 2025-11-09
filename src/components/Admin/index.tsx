@@ -23,6 +23,22 @@ function Admin() {
   const [filteredUsers, setFilteredUsers] = useState<UserFont[]>([]);
   const [layout, setLayout] = useState<"full" | "small" | "reduce">("full");
 
+  // Load auto-update preference from localStorage
+  const [autoUpdate, setAutoUpdate] = useState<boolean>(() => {
+    const stored = localStorage.getItem(
+      "signalwerk.pixelfont.admin.autoupdate",
+    );
+    return stored !== null ? stored === "true" : true; // Default to true (enabled)
+  });
+
+  // Save auto-update preference to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem(
+      "signalwerk.pixelfont.admin.autoupdate",
+      String(autoUpdate),
+    );
+  }, [autoUpdate]);
+
   useEffect(() => {
     // Fetch users from server
     const fetchUsers = async () => {
@@ -38,10 +54,13 @@ function Admin() {
     };
 
     fetchUsers();
-    const interval = setInterval(fetchUsers, 5000); // Refresh every 5 seconds
 
-    return () => clearInterval(interval);
-  }, []);
+    // Only set up auto-update interval if autoUpdate is enabled
+    if (autoUpdate) {
+      const interval = setInterval(fetchUsers, 5000); // Refresh every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [autoUpdate]);
 
   useEffect(() => {
     // Filter users based on time
@@ -152,6 +171,16 @@ function Admin() {
             placeholder="Enter text to preview"
           />
         </div>
+
+        <div className="admin__filter">
+          <label htmlFor="auto-update">Auto-update (5s)</label>
+          <input
+            type="checkbox"
+            id="auto-update"
+            checked={autoUpdate}
+            onChange={(e) => setAutoUpdate(e.target.checked)}
+          />
+        </div>
       </div>
 
       <div className="admin__users-count">
@@ -176,7 +205,8 @@ function Admin() {
                   {user.author || "anonymous"}
                 </div>
                 <div className="admin__preview-time">
-                  Last update: {new Date(user.lastUpdate).toLocaleString('de-CH')}
+                  Last update:{" "}
+                  {new Date(user.lastUpdate).toLocaleString("de-CH")}
                 </div>
               </>
             )}

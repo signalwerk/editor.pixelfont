@@ -52,6 +52,19 @@
   font-size: 0.9rem;
 }
 
+.admin__filter label[for="auto-update"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.admin__filter input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
 .admin__select {
   padding: 0.5rem;
   border: 1px solid #ccc;

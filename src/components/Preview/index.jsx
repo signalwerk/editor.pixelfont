@@ -60,7 +60,7 @@ function Preview() {
           onChange={(e) => setIsAnimated(e.target.checked)}
         />
         <label htmlFor="animated" className="preview__checkbox-label">
-          <span>Animated (cycle characters)</span>
+          <span>Animierte Vorschau</span>
         </label>
       </div>
 

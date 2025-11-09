@@ -29,7 +29,7 @@ export function Save() {
     fontDispatch({ type: "clearPixels" });
   };
 
-  const handleAuthorChange = (e) => {
+  const handleAuthorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     fontDispatch({ type: "setAuthor", author: e.target.value });
   };
 
